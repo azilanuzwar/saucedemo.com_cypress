@@ -1,1 +1,6 @@
-{}
+{
+    "watchForFileChanges": false,
+
+    "chromeWebSecurity" : false
+   
+}
