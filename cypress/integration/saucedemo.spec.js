@@ -1,9 +1,12 @@
 /// <reference types="cypress" />
 
-describe ('filtering', function(){
+import {LoginPage} from "../page-objects/login-page";
+
+describe ('login to saucedemo.com', function(){
+    const loginPage = new LoginPage ()
 
     beforeEach(() => {
-        cy.visit('https://www.saucedemo.com/')
+        loginPage.navigate()
     })
 
     it('Positive case from login until finish', () => {    
@@ -68,7 +71,7 @@ describe ('filtering', function(){
         cy.contains('[data-test=error]', 'Username is required')
     })
 
-    it.only('Login with Blank Username and Blank Pass', () => {
+    it('Login with Blank Username and Blank Pass', () => {
         cy.get('[data-test=login-button]').click()
         cy.contains('[data-test=error]', 'Username is required')
     })
